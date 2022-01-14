@@ -38,7 +38,7 @@ class board():
         
         if isFull == True:
             print("All cells full, the game is a draw!")
-            self.gameOver = True
+            self.endgame()
 
 
         #checks if individual column is full. If full, do not allow user to place a counter there
@@ -104,7 +104,7 @@ class board():
         if streak == 4:
             self.printboard()
             print(f"Player {number} wins! GG")
-            self.won()
+            self.endgame()
             return True
 
             
@@ -123,8 +123,8 @@ class board():
         else:
             return False
     
-    #ends the game if the game is determined to have been won
-    def won(self):
+    #ends the game if the game is determined to have been won, or over due to running out of columns
+    def endgame(self):
         self.board = [[0 for x in range(len(self.board[0]))]for y in range(len(self.board))]
         print("THANK YOU FOR PLAYING, I HOPE YOU HAD A NICE DAY :D")
         self.gameOver = True
